@@ -1,0 +1,10 @@
+groups:
+  - name: agentdesk
+    rules:
+      - alert: AgentDeskDown
+        expr: up{job="agentdesk"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "AgentDesk instance is down"

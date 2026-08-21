@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "agentdesk.fullname" . }}
+  labels:
+    app: {{ include "agentdesk.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "agentdesk.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "agentdesk.name" . }}
+    spec:
+      containers:
+        - name: agentdesk
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 8500
+          env:
+            - name: AGENTDESK_PROVIDERS__DEFAULT
+              value: {{ .Values.config.providerDefault | quote }}
+          readinessProbe:
+            httpGet: { path: /readyz, port: 8500 }
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

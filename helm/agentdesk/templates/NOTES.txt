@@ -1,0 +1,3 @@
+AgentDesk deployed.
+
+  kubectl get pods -l app={{ include "agentdesk.name" . }}

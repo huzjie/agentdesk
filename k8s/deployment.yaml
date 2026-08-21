@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agentdesk
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: agentdesk
+  template:
+    metadata:
+      labels:
+        app: agentdesk
+    spec:
+      serviceAccountName: agentdesk
+      containers:
+        - name: agentdesk
+          image: agentdesk:1.0.0
+          ports:
+            - containerPort: 8500
+          volumeMounts:
+            - name: config
+              mountPath: /app/config.json
+              subPath: config.json
+            - name: data
+              mountPath: /app/.agentdesk
+          readinessProbe:
+            httpGet: { path: /readyz, port: 8500 }
+          livenessProbe:
+            httpGet: { path: /healthz, port: 8500 }
+      volumes:
+        - name: config
+          configMap:
+            name: agentdesk-config
+        - name: data
+          emptyDir: {}

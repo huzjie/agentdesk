@@ -1,0 +1,7 @@
+{
+  "providers": {
+    "default": "mock",
+    "mock": { "model": "mock", "api_key": "" }
+  },
+  "computer": { "mode": "mock" }
+}

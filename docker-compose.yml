@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  agentdesk:
+    build: .
+    ports:
+      - "8500:8500"
+    environment:
+      - AGENTDESK_PROVIDERS__DEFAULT=mock
+    volumes:
+      - agentdesk-data:/app/.agentdesk
+    restart: unless-stopped
+
+volumes:
+  agentdesk-data:

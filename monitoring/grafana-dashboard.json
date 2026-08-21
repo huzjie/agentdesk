@@ -1,0 +1,13 @@
+{
+  "title": "AgentDesk",
+  "uid": "agentdesk",
+  "panels": [
+    {
+      "title": "Tasks",
+      "type": "stat",
+      "targets": [
+        { "expr": "agentdesk_tasks_total", "legendFormat": "total tasks" }
+      ]
+    }
+  ]
+}

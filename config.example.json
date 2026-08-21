@@ -1,0 +1,21 @@
+{
+  "agentdesk": {
+    "workspace_root": "~/.agentdesk/workspace",
+    "db_path": "~/.agentdesk/agentdesk.db"
+  },
+  "server": { "host": "127.0.0.1", "port": 8500 },
+  "computer": { "mode": "mock", "max_steps": 20 },
+  "security": {
+    "sandbox": "subprocess",
+    "deny_network": false,
+    "require_approval": ["shell"],
+    "audit_enabled": true
+  },
+  "academy": { "pass_threshold": 0.7 },
+  "providers": {
+    "default": "mock",
+    "mock": { "base_url": "", "model": "mock", "api_key": "" },
+    "deepseek": { "base_url": "https://api.deepseek.com/v1", "api_key": "", "model": "deepseek-chat" },
+    "qwen": { "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1", "api_key": "", "model": "qwen-plus" }
+  }
+}

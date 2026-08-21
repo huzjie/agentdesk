@@ -1,0 +1,94 @@
+:root {
+  --bg: #0b0e14;
+  --panel: #141925;
+  --border: #232b3d;
+  --text: #e6e9f0;
+  --dim: #8b93a7;
+  --accent: #4f8cff;
+  --green: #3ddc97;
+  --red: #ff5d5d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app { padding: 20px; max-width: 1200px; margin: 0 auto; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.topbar h1 { font-size: 22px; margin: 0; }
+.topbar h1 span { font-size: 13px; color: var(--dim); font-weight: 400; margin-left: 8px; }
+
+button {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover { filter: brightness(1.1); }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.card h2 { font-size: 15px; margin: 0 0 12px; }
+.card h2 em { color: var(--accent); font-style: normal; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+th { color: var(--dim); font-weight: 600; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+li:last-child { border-bottom: none; }
+
+.status { padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.status.active { background: rgba(61, 220, 151, 0.15); color: var(--green); }
+.status.paused { background: rgba(255, 165, 0, 0.15); color: #ffb020; }
+.status.offboarded { background: rgba(255, 93, 93, 0.15); color: var(--red); }
+.status.provisioned, .status.onboarding { background: rgba(79, 140, 255, 0.15); color: var(--accent); }
+
+.dim { color: var(--dim); }
+code { background: #1c2333; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+
+textarea {
+  width: 100%;
+  min-height: 72px;
+  background: #0e1320;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 8px;
+  font-family: inherit;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+pre {
+  background: #0e1320;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 12px;
+  overflow: auto;
+  max-height: 200px;
+  white-space: pre-wrap;
+}
