@@ -18,7 +18,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-api = ["fastapi>=0.110", "uvicorn>=0.29"]
+api = ["fastapi>=0.152.0", "uvicorn>=0.29"]
 test = ["pytest>=7.0"]
 gui = ["pyautogui>=0.9.54"]
 
