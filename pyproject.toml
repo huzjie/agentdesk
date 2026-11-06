@@ -19,7 +19,7 @@ classifiers = [
 
 [project.optional-dependencies]
 api = ["fastapi>=0.110", "uvicorn>=0.29"]
-test = ["pytest>=7.0"]
+test = ["pytest>=9.2.0"]
 gui = ["pyautogui>=0.9.54"]
 
 [project.scripts]
